@@ -1,0 +1,21 @@
+{
+  "name": "cpsc113-node-blog",
+  "version": "1.0.0",
+  "description": "Blog for CPSC113",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Unlicense",
+  "dependencies": {
+    "cas-authentication": "0.0.8",
+    "client-sessions": "^0.7.0",
+    "express": "^4.13.3",
+    "express-session": "^1.12.1",
+    "nunjucks": "^2.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.8.1"
+  }
+}
