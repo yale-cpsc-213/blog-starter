@@ -2,7 +2,7 @@
 var cas = require('./cas.js');
 var session = require('client-sessions');
 var nunjucks = require('nunjucks');
-var compression = require('compression')
+var compression = require('compression');
 
 module.exports = function(app, host, port, sessionSecret){
 
@@ -11,8 +11,11 @@ module.exports = function(app, host, port, sessionSecret){
       express: app,
       watch: true
   });
-
+  var loadData = require('./data.js');
+  loadData();
+  console.log('woot')
   app.use(compression());
+
 
   // Set up an Express session, which is required for CASAuthentication.
   // 1 week duration, extended by a week each time they log in.

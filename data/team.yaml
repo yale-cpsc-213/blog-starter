@@ -1,0 +1,24 @@
+name: Windy emu
+app:
+  name: Snap Chat
+  url: http://snapchat.com
+  twitter_username: snapchat
+  repo: http://git.yale.edu/foo
+  tagline: Engagement metrics done right
+  value: |
+    For non-technical marketers
+    who struggle to find return on investment in social media
+    our product is a web-based analytics software that translates engagement metrics into actionable revenue metrics.
+members:
+  - first_name: Hannia
+    last_name: Zia
+    email: hannia.zia@yale.edu>
+  - first_name: Jason
+    last_name: Brooks
+    email: jason.brooks@yale.edu
+  - first_name: April
+    last_name: Koh
+    email: april.koh@yale.edu
+  - first_name: Woot
+    last_name: Hatch
+    email: david.hatch@yale.edu
