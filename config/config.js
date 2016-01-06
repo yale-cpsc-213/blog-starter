@@ -1,21 +1,25 @@
 'use strict';
 var cas = require('./cas.js');
-var session = require('express-session');
+var session = require('client-sessions');
 var nunjucks = require('nunjucks');
 
 
 module.exports = function(app, host, port, sessionSecret){
 
-    nunjucks.configure('views', {
-        autoescape: true,
-        express: app
-    });
+  nunjucks.configure('views', {
+      autoescape: true,
+      express: app,
+      watch: true
+  });
 
   // Set up an Express session, which is required for CASAuthentication.
+  // 1 week duration, extended by a week each time they log in.
+  var duration = 24 * 60 * 60 * 7 * 1000;
   app.use( session({
-      secret            : sessionSecret,
-      resave            : false,
-      saveUninitialized : true
+      cookieName: 'session',
+      secret: sessionSecret,
+      duration: duration,
+      activeDuration: duration
   }));
 
   var auth = cas(host, port);
