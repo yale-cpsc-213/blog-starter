@@ -7,7 +7,7 @@ var host = process.env.IP || 'localhost';
 var port = process.env.IP || 4000;
 var sessionSecret = process.env.SESSION_SECRET || 'e70a1e1ee4b8f662f78'
 
-app.use(express.static(__dirname + '/public'));
+app.use('/static', express.static(__dirname + '/static'));
 config(app, host, port, sessionSecret);
 
 var server = app.listen(port, function () {
