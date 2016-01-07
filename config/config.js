@@ -3,17 +3,18 @@ var cas = require('./cas.js');
 var session = require('client-sessions');
 var nunjucks = require('nunjucks');
 var compression = require('compression');
+var loadData = require('./data.js');
 
 module.exports = function(app, host, port, sessionSecret){
 
-  nunjucks.configure('views', {
+  var nunjucksEnv = nunjucks.configure('views', {
       autoescape: true,
       express: app,
       watch: true
   });
-  var loadData = require('./data.js');
-  loadData();
-  console.log('woot')
+  // Load our Yaml files and make the resulting
+  // data available whenever we render a template.
+  nunjucksEnv.addGlobal('data', loadData());
   app.use(compression());
 
 
