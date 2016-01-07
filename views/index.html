@@ -1,1 +1,15 @@
 {% extends "layout.html" %}
+
+{% block header %}
+  <div class="container">
+    <header class="row page-header">
+      <h1>{{data.team.name}}<small> // {{data.class.number}} &ndash; {{data.class.semester}}</small></h1>
+    </header>
+  </div> <!-- /container -->
+{% endblock %}
+
+{% block main %}
+  {% for updateKey, update in data.updates %}
+    {% include "partials/update-summary.html" %}
+  {% endfor %}
+{% endblock %}

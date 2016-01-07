@@ -2,6 +2,8 @@
 var cas = require('./cas.js');
 var session = require('client-sessions');
 var nunjucks = require('nunjucks');
+var markdown = require('nunjucks-markdown');
+var marked = require('marked');
 var compression = require('compression');
 var loadData = require('./data.js');
 
@@ -12,9 +14,15 @@ module.exports = function(app, host, port, sessionSecret){
       express: app,
       watch: true
   });
+  markdown.register(nunjucksEnv, marked);
+  nunjucksEnv.addFilter('render', function(content){
+    return nunjucksEnv.renderString(content, this.ctx);
+  })
   // Load our Yaml files and make the resulting
   // data available whenever we render a template.
-  nunjucksEnv.addGlobal('data', loadData());
+  var data = loadData();
+  nunjucksEnv.addGlobal('data', data);
+  app.locals.data = data;
   app.use(compression());
 
 
@@ -40,6 +48,16 @@ module.exports = function(app, host, port, sessionSecret){
   // Get the homepage
   app.get('/', function (req, res) {
     res.render('index.html', {});
+  });
+
+  // Get a particular update
+  app.get('/updates/:updateKey', function (req, res) {
+    var update = app.locals.data.updates[req.params.updateKey];
+    if(!update){
+      res.status(404).end();
+    }else{
+      res.render('update.html', {update: update, updateKey: req.params.updateKey});
+    }
   });
 
 }

@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}{{updateKey}} update | team {{data.team.name}}{% endblock %}
+
+
+{% block header %}
+  <div class="container">
+    <div class="row">
+      <ol class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li>Updates</li>
+        <li class="active">{{updateKey}}</li>
+      </ol>
+    </div>
+
+  </div>
+{% endblock %}
+
+{% block main %}
+  <div class="row update">
+    <h1 class="updateTitle"><span class="updateKey">{{updateKey}}:</span><br>{{update.title}}</h1>
+    <div class="updateBody">
+{% markdown %}
+{{update.__content|render|safe}}
+{% endmarkdown%}
+    </div>
+  </div>
+{% endblock %}
