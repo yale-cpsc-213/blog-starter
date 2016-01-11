@@ -22,6 +22,10 @@ We recommend version v4.2.4LTS. Once you have node installed, cd into the
 
   npm install
 
+Then, you can install the client-side dependencies with
+
+  ./node_modules/.bin/bower install
+
 Then, you can run the application with the following command:
 
   node index.js
@@ -34,4 +38,4 @@ nodemon, which will restart the server every time your source files change.
 To update the blog, you'll be editing and adding `.yaml` files in the
 `data/updates` directory. Before you get into that, you'll likely want
 to customize `data/team.yaml` to correspond to your team, rather than
-the demo data with which we've populated it. 
+the demo data with which we've populated it.
