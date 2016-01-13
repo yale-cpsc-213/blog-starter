@@ -1,0 +1,120 @@
+---
+problem:
+  - title: Sharing lots of photos and videos is a time consuming
+    invalidated: false # whether this has been invalidated. Used to show change
+    confidence: 5
+    description: |
+     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
+
+  - title: Parents have no free time
+    invalidated: false # whether this has been invalidated. Used to show change
+    confidence: 2
+    description: |
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
+
+  - title: Parents confused by technology
+    invalidated: true # whether this has been invalidated. Used to show change
+    confidence: 10
+    description: |
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
+
+  - title: |
+     *Existing alternatives*: Flickr, SmugMug, MobileMe, Facebook
+    invalidated: false # whether this has been invalidated. Used to show change
+    confidence: 7
+    description: |
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
+
+cost_structure: # ... etc
+
+  - title: Hosting (currently $30 on Heroku)
+    invalidated: false # whether this has been invalidated. Used to show change
+    confidence: 8
+    description: |
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
+
+  - title: People costs (40hrs * $65/hr = $10k/mo)
+    invalidated: false # whether this has been invalidated. Used to show change
+    confidence: 3
+    description: |
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
+
+
+solution: # ... etc
+
+  - title: Instant, no upload sharing
+    invalidated: false # whether this has been invalidated. Used to show change
+    confidence: 2
+    description: |
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
+
+
+  - title: iPhoto/folder integration
+    invalidated: false # whether this has been invalidated. Used to show change
+    confidence: 9
+    description: |
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
+
+  - title: Better notification tools
+    invalidated: false # whether this has been invalidated. Used to show change
+    confidence: 1
+    description: |
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor inci didunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis  nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo conse quat.
+
+key_metrics:
+  - title: A - Sign up
+  - title: A - Created first gallery
+  - title: R - Shared an album and/or video
+  - title: R - invited family and friends
+  - title: R - Paid after trial
+
+
+value_proposition:
+  - title: The fastest way to share your photos and videos
+  - title: |
+      *High level concept:* Photo and video sharing without the uploading
+
+unfair_advantage:
+  - title: community
+
+channels:
+  - title: Fiends
+  - title: Daycare
+  - title: Birthday parties
+  - title: AdWords
+  - title: Facebook
+  - title: Word of mouth
+
+customer_segments:
+  - title: Parents (creators)
+  - title: Family and friends (viewers)
+  - title: |
+      *Early adopter*: Parents with young kids
+---

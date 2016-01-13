@@ -27,7 +27,7 @@ function populatePaths(object, paths, newData){
     if (!(paths[i] in current)) {
       current[paths[i]] = (i === paths.length -1 )? newData : {};
     }
-    current = object[paths[i]];
+    current = current[paths[i]];
   }
 }
 

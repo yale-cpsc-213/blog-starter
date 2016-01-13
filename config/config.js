@@ -69,14 +69,32 @@ module.exports = function(app, host, port, sessionSecret){
     res.render('index.html', {});
   });
 
-  // Get a particular update
-  app.get('/updates/:updateKey', function (req, res) {
-    var update = app.locals.data.updates[req.params.updateKey];
-    if(!update){
-      res.status(404).end();
-    }else{
-      res.render('update.html', {update: update, updateKey: req.params.updateKey});
+  function getUpdateContext(updateKey){
+    var update = app.locals.data.updates[updateKey];
+    if (!update) {
+      return null;
     }
-  });
+    return {
+      updateKey: updateKey,
+      update: update.update,
+      canvas: update.canvas
+    };
+  }
+
+  function getUpdateDetailController(template){
+    return function (req, res) {
+      var context = getUpdateContext(req.params.updateKey);
+      if(!context){
+        res.status(404).end();
+      }else{
+        res.render(template, context);
+      }
+    }
+  }
+
+
+  // Get a particular update
+  app.get('/updates/:updateKey', getUpdateDetailController('update.html'));
+  app.get('/updates/:updateKey/canvas', getUpdateDetailController('canvas.html'));
 
 }
