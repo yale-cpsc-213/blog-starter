@@ -22,11 +22,14 @@
       <script src="dist/js/vendor/html5shiv.js"></script>
       <script src="dist/js/vendor/respond.min.js"></script>
     <![endif]-->
+
+    {% block extra_head %}
+    {% endblock %}
   </head>
   <body>
     {% block header %}
     {% endblock %}
-    <div class="container">
+    <div class="{% if fluid_layout %}container-fluid{% else %}container{% endif %}">
       {% block main %}
       {% endblock %}
     </div> <!-- /container -->

@@ -7,6 +7,22 @@ var marked = require('marked');
 var compression = require('compression');
 var loadData = require('./data.js');
 
+
+// Create a markdown renderer that only renders the
+// inline markdown elements, not block elements.
+var markdownInlineRenderer = new marked.Renderer();
+(function () {
+  var returnText = function(text, level){return text};
+  var blockLevelElements = [
+    'code', 'blockquote', 'html', 'heading', 'hr', 'list', 'listitem',
+    'paragraph', 'table', 'tablerow', 'tablecell'
+  ];
+  blockLevelElements.forEach(function(el){
+    markdownInlineRenderer[el] = returnText
+  });
+}());
+
+
 module.exports = function(app, host, port, sessionSecret){
 
   var nunjucksEnv = nunjucks.configure('views', {
@@ -17,6 +33,9 @@ module.exports = function(app, host, port, sessionSecret){
   markdown.register(nunjucksEnv, marked);
   nunjucksEnv.addFilter('render', function(content){
     return nunjucksEnv.renderString(content, this.ctx);
+  })
+  nunjucksEnv.addFilter('inlineMarkdown', function(content){
+    return marked(content, {renderer: markdownInlineRenderer}).replace(/^<p>(.*)<\/p>\n*$/, "$1");
   })
   // Load our Yaml files and make the resulting
   // data available whenever we render a template.
@@ -50,14 +69,32 @@ module.exports = function(app, host, port, sessionSecret){
     res.render('index.html', {});
   });
 
-  // Get a particular update
-  app.get('/updates/:updateKey', function (req, res) {
-    var update = app.locals.data.updates[req.params.updateKey];
-    if(!update){
-      res.status(404).end();
-    }else{
-      res.render('update.html', {update: update, updateKey: req.params.updateKey});
+  function getUpdateContext(updateKey){
+    var update = app.locals.data.updates[updateKey];
+    if (!update) {
+      return null;
     }
-  });
+    return {
+      updateKey: updateKey,
+      update: update.update,
+      canvas: update.canvas
+    };
+  }
+
+  function getUpdateDetailController(template){
+    return function (req, res) {
+      var context = getUpdateContext(req.params.updateKey);
+      if(!context){
+        res.status(404).end();
+      }else{
+        res.render(template, context);
+      }
+    }
+  }
+
+
+  // Get a particular update
+  app.get('/updates/:updateKey', getUpdateDetailController('update.html'));
+  app.get('/updates/:updateKey/canvas', getUpdateDetailController('canvas.html'));
 
 }

@@ -25,3 +25,62 @@ h1.updateTitle span.updateKey{
 div.update{
   margin-bottom: 2em;
 }
+
+div.updateOverview{
+  padding: 15px;
+
+  background-color: #48CFAD;
+  color: #fff;
+}
+
+svg.canvas{
+  fill: #434A54;
+  background-color: #fff;
+  display: block;
+  border-bottom: 5px solid #37BC9B
+}
+
+ul.updateNews{
+  padding-left: 0px;
+}
+ul.updateNews li{
+  list-style: none;
+  margin-left: 0;
+}
+
+.canvas-holder{
+  text-align: center;
+  color: white;
+}
+
+img.canvas-icon{
+  background-color: white;
+}
+
+table#bizcanvas{
+  width: 100%;
+  table-layout: fixed;
+  margin-bottom:2em;
+}
+table#bizcanvas td{
+  vertical-align: top;
+}
+table#bizcanvas .invalidated{
+  color: #DA4453;
+  text-decoration: line-through;
+}
+/* http://bootflat.github.io/documentation.html */
+.canvas-heading{
+  background-color: #434A54;
+  display:block;
+  color: white;
+  margin-top: 0;
+  padding: 0.5em 0.25em;
+}
+
+.footer-banner{
+  margin-left: 0;
+}
+.footer-banner-holder{
+  padding-left: 0;
+}

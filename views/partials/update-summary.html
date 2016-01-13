@@ -1,8 +1,12 @@
 <div class="row updateSummary">
-  <h4><span class="updateKey">{{updateKey}}</span>: {{update.title}}</h4>
+  <h4>
+    <a href="/updates/{{updateKey}}">
+      <span class="updateKey">{{updateKey}}</span>: {{update.title}}
+    </a>
+  </h4>
   <p>
 {% markdown %}
-{{update.summary|safe}}
+{{update.summary|inlineMarkdown|safe}}
 {% endmarkdown %}
   </p>
   <a href="/updates/{{updateKey}}">Read more...</a>
