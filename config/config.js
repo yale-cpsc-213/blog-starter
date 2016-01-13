@@ -7,6 +7,22 @@ var marked = require('marked');
 var compression = require('compression');
 var loadData = require('./data.js');
 
+
+// Create a markdown renderer that only renders the
+// inline markdown elements, not block elements.
+var markdownInlineRenderer = new marked.Renderer();
+(function () {
+  var returnText = function(text, level){return text};
+  var blockLevelElements = [
+    'code', 'blockquote', 'html', 'heading', 'hr', 'list', 'listitem',
+    'paragraph', 'table', 'tablerow', 'tablecell'
+  ];
+  blockLevelElements.forEach(function(el){
+    markdownInlineRenderer[el] = returnText
+  });
+}());
+
+
 module.exports = function(app, host, port, sessionSecret){
 
   var nunjucksEnv = nunjucks.configure('views', {
@@ -17,6 +33,9 @@ module.exports = function(app, host, port, sessionSecret){
   markdown.register(nunjucksEnv, marked);
   nunjucksEnv.addFilter('render', function(content){
     return nunjucksEnv.renderString(content, this.ctx);
+  })
+  nunjucksEnv.addFilter('inlineMarkdown', function(content){
+    return marked(content, {renderer: markdownInlineRenderer}).replace(/^<p>(.*)<\/p>\n*$/, "$1");
   })
   // Load our Yaml files and make the resulting
   // data available whenever we render a template.

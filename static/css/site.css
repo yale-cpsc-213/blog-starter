@@ -25,3 +25,7 @@ h1.updateTitle span.updateKey{
 div.update{
   margin-bottom: 2em;
 }
+
+ul.updateNews li{
+  list-style: none;
+}

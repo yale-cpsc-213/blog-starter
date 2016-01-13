@@ -12,13 +12,33 @@
         <li class="active">{{updateKey}}</li>
       </ol>
     </div>
-
   </div>
 {% endblock %}
 
 {% block main %}
   <div class="row update">
     <h1 class="updateTitle"><span class="updateKey">{{updateKey}}:</span><br>{{update.title}}</h1>
+
+    <div class="updateSummary">
+      <ul class="updateNews">
+        {% for news in update.news %}
+          <li>
+            {% if news.kind == 'joy' %}
+              {% set icon = 'fa-smile-o' %}
+            {% elif news.kind == 'learning' %}
+              {% set icon = 'fa-lightbulb-o' %}
+            {% elif news.kind == 'struggle' %}
+              {% set icon = 'fa-frown-o' %}
+            {% else %}
+            {% set icon = 'fa-genderless' %}
+            {% endif %}
+            <i class="fa fa-home fa-fw {{icon}}"></i>
+            {{news.title|inlineMarkdown|safe}}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
     <div class="updateBody">
 {% markdown %}
 {{update.__content|render|safe}}
