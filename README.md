@@ -39,3 +39,16 @@ To update the blog, you'll be editing and adding `.yaml` files in the
 `data/updates` directory. Before you get into that, you'll likely want
 to customize `data/team.yaml` to correspond to your team, rather than
 the demo data with which we've populated it.
+
+## Deploying your blog
+
+Go to herokuapp.com and log in or register an account if you have not already done so.
+Go to the following link https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction for a helpful tutorial on how to deploy your blog to Heroku.
+
+* Make sure you have the Heroku Toolbelt installed; after installing, you will be able to use Heroku's suite of commands in your terminal.
+* Start by logging in:
+
+`heroku login`
+
+* Then create an app on Heroku: `heroku create`, and it'll generate a random name for your app for you unless you add params like `heroku create blah`, and it'll create blah.herokuapp.com for you.
+* Then deploy the code: `git push heroku master`
