@@ -52,3 +52,4 @@ Go to the following link https://devcenter.heroku.com/articles/getting-started-w
 
 * Then create an app on Heroku: `heroku create`, and it'll generate a random name for your app for you unless you add params like `heroku create blah`, and it'll create blah.herokuapp.com for you.
 * Then deploy the code: `git push heroku master`
+* You can now access your site by opening the link (eg blah.herokuapp.com) in your browser or by typing `heroku open` on your command line.
