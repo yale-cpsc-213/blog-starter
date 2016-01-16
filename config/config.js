@@ -77,7 +77,7 @@ module.exports = function(app, host, port, sessionSecret){
     return {
       updateKey: updateKey,
       update: update.update,
-      canvas: update.canvas
+      canvas: update.canvas,
     };
   }
 
@@ -92,9 +92,39 @@ module.exports = function(app, host, port, sessionSecret){
     }
   }
 
+  function getConversationContext(conversationSlug) {
+    var conversation = app.locals.data.conversations[conversationSlug];
+    if (!conversation) {
+      return null;
+    }
+    return {
+      conversationSlug: conversationSlug,
+      conversation: conversation
+    }
+  }
+
+  function getConversationDetailController(template) {
+    return function (req, res) {
+      var context = getConversationContext(req.params.conversationSlug);
+      if(!context){
+        res.status(404).end();
+      } else {
+        res.render(template,context);
+      }
+    }
+  }
+
+
 
   // Get a particular update
   app.get('/updates/:updateKey', getUpdateDetailController('update.html'));
   app.get('/updates/:updateKey/canvas', getUpdateDetailController('canvas.html'));
 
+  // Get all conversations
+  app.get('/conversations', function (req, res) {
+    res.render('conversations.html', {});
+  });
+
+  // Get particular conversation
+  app.get('/conversations/:conversationSlug', getConversationDetailController('conversation.html'));
 }
