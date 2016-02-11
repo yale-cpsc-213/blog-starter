@@ -12,9 +12,8 @@ a starter blog for you. It accomplishes a few things:
 
 ## Editing your blog
 
-To start, you'll need to clone this repository.
-
-  git clone git@git.yale.edu:cpsc-113-spring-2016/blog-starter.git
+To start, you'll need to clone (or "fork") this repository on GitHub or
+git.yale.edu. Then you should clone it to your development machine.
 
 To run the application, you'll need [Node](https://nodejs.org/en/) installed.
 We recommend version v4.2.4LTS. Once you have node installed, cd into the
