@@ -4,22 +4,27 @@ Teams in CPSC213 will turn in their weekly updates by keeping a blog. This is
 a starter blog for you. It accomplishes a few things:
 
 * All data is kept in flat files so you can keep them under version control
-  and so that we can comment easily on your progress via your repository
-  hosted at [http://git.yale.edu](git.yale.edu).
+  and so that we can comment easily on your progress via your repository.
 * The application can be deployed to Heroku.
 * The application allows only your team and the instructors to view it and
   relies on Yale CAS authentication to do that.
 
 ## Editing your blog
 
-To start, you'll need to clone (or "fork") this repository on GitHub or
-git.yale.edu. Then you should clone it to your development machine.
+To start, you'll need to accept an invitation from the instructors to
+clone (or "fork") this repository via GitHub Classroom.
+Then you should clone it to your development machine and get to work
+altering it for your team.
 
-To run the application, you'll need [Node](https://nodejs.org/en/) installed.
-We recommend version v4.2.4LTS. Once you have node installed, cd into the
-`blog-starter` directory and install the node dependencies:
+To run the application, you'll need [Node](https://nodejs.org/en/) installed. We
+recommend version v6.\*LTS. (Node v6.9.4LTS is the current version as of this
+commit.) Once you have node installed, cd into the `blog-starter` directory and
+install the node dependencies:
 
-  npm install
+  yarn install
+
+If you don't have Facebook's [yarn](https://yarnpkg.com) installed, you should
+follow the [directions on their website](https://yarnpkg.com/en/docs/install).
 
 Then, you can install the client-side dependencies with
 
