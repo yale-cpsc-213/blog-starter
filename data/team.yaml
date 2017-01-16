@@ -1,27 +1,28 @@
 ---
 name: Windy emu
 app:
-  name: Snap Chat
-  url: http://snapchat.com
-  twitter_username: snapchat
+  name: Whap Chat
+  url: http://whapchat.com
+  twitter_username: whapchat
   repo: http://git.yale.edu/foo
-  tagline: Engagement metrics done right
+  tagline: Chat metrics done right
   value: |
     For non-technical marketers
     who struggle to find return on investment in social media
-    our product is a web-based analytics software that translates engagement metrics into actionable revenue metrics.
+    our product is a web-based analytics software that translates engagement
+    metrics into actionable revenue metrics.
 members:
-  - first_name: Hannia
+  - first_name: Julia
     last_name: Zia
-    email: hannia.zia@yale.edu>
+    email: julia.zia@yale.edu
   - first_name: Jason
-    last_name: Brooks
-    email: jason.brooks@yale.edu
+    last_name: Brown
+    email: jason.brown@yale.edu
   - first_name: April
-    last_name: Koh
-    email: april.koh@yale.edu
-  - first_name: Woot
+    last_name: Killington
+    email: april.killington@yale.edu
+  - first_name: Dirk
     last_name: Hatch
-    email: david.hatch@yale.edu
+    email: dirk.hatch@yale.edu
 ---
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
