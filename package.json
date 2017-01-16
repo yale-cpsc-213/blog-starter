@@ -14,10 +14,10 @@
     "client-sessions": "^0.7.0",
     "compression": "^1.6.0",
     "express": "^4.13.3",
-    "glob": "^6.0.3",
+    "glob": "^7.1.1",
     "marked": "^0.3.5",
-    "nunjucks": "^2.2.0",
-    "nunjucks-markdown": "^1.1.0",
+    "nunjucks": "^3.0.0",
+    "nunjucks-markdown": "^2.0.1",
     "yaml-front-matter": "^3.2.3"
   },
   "devDependencies": {
