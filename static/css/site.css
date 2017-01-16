@@ -8,7 +8,8 @@ a.contact-member{
 }
 
 ul.team-app-details{
-  padding-left: 1em;
+  padding-left: 0em;
+  list-style: none;
 }
 ul.team-app-details i.fa{
   margin-right:0.25em;
