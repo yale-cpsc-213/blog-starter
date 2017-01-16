@@ -23,6 +23,36 @@
       <script src="dist/js/vendor/respond.min.js"></script>
     <![endif]-->
 
+    <style media="screen">
+
+    svg.canvas{
+      border-bottom: 5px solid {{colors.dark}};
+    }
+    div.updateOverview{
+      background-color: {{colors.light}};
+    }
+    a{
+      color: {{colors.dark}};
+    }
+    a:hover{
+      color: {{colors.dark}};
+      opacity: 0.75;
+    }
+    .footer-banner{
+      background-color: {{colors.light}};
+      color: #fff;
+    }
+    .footer-banner a{
+      color: #fff;
+    }
+    .footer-banner li{
+      opacity: 0.85;
+    }
+    .footer-banner ul li{
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    </style>
+
     {% block extra_head %}
     {% endblock %}
   </head>

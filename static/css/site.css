@@ -34,8 +34,6 @@ div.update{
 
 div.updateOverview{
   padding: 15px;
-
-  background-color: #48CFAD;
   color: #fff;
 }
 
@@ -43,7 +41,6 @@ svg.canvas{
   fill: #434A54;
   background-color: #fff;
   display: block;
-  border-bottom: 5px solid #37BC9B
 }
 
 ul.updateNews{

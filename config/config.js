@@ -23,6 +23,18 @@ var markdownInlineRenderer = new marked.Renderer();
   });
 }());
 
+// A quick hashing function, takes a string and returns an int
+// in the range [0, max).
+function sdbmHash(inputString, max){
+    var hash = 0;
+    for (var i = 0; i < inputString.length; i++) {
+        var char = inputString.charCodeAt(i);
+        hash = char + (hash << 6) + (hash << 16) - hash;
+    }
+    var retval = Math.abs(hash % max);
+    console.log("Returning", retval, "given", inputString, " and ", max);
+    return retval;
+}
 
 module.exports = function(app, host, port, sessionSecret){
 
@@ -38,12 +50,33 @@ module.exports = function(app, host, port, sessionSecret){
   nunjucksEnv.addFilter('inlineMarkdown', function(content){
     return marked(content, {renderer: markdownInlineRenderer}).replace(/^<p>(.*)<\/p>\n*$/, "$1");
   });
+
   // Load our Yaml files and make the resulting
   // data available whenever we render a template.
   var data = loadData();
   nunjucksEnv.addGlobal('data', data);
   app.locals.data = data;
   app.use(compression());
+
+  // Choose a color scheme
+  var flatUIColorPairs = [
+    ["#1ABC9C", "#16A085"],
+    ["#2ECC71", "#27AE60"],
+    ["#3498DB", "#2980B9"],
+    ["#9B59B6", "#8E44AD"],
+    ["#34495E", "#2C3E50"],
+    ["#F1C40F", "#F39C12"],
+    ["#E67E22", "#D35400"],
+    ["#E74C3C", "#C0392B"],
+  ];
+  // Choose a random color pair based on the name of the team
+  console.log("Team name is ", app.locals.data.team.name);
+  var selectedColorPair = flatUIColorPairs[sdbmHash(app.locals.data.team.name || '', flatUIColorPairs.length)];
+  app.locals.colors = {
+    light: selectedColorPair[0],
+    dark: selectedColorPair[1]
+  };
+
 
 
   // Set up an Express session, which is required for CASAuthentication.
