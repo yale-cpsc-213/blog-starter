@@ -1,3 +1,4 @@
+/*jslint node: true */
 'use strict';
 var glob = require('glob');
 var yamlFront = require('yaml-front-matter');

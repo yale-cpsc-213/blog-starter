@@ -1,3 +1,4 @@
+/*jslint node: true */
 'use strict';
 var cas = require('./cas.js');
 var session = require('client-sessions');
@@ -12,13 +13,13 @@ var loadData = require('./data.js');
 // inline markdown elements, not block elements.
 var markdownInlineRenderer = new marked.Renderer();
 (function () {
-  var returnText = function(text, level){return text};
+  var returnText = function(text, level){return text;};
   var blockLevelElements = [
     'code', 'blockquote', 'html', 'heading', 'hr', 'list', 'listitem',
     'paragraph', 'table', 'tablerow', 'tablecell'
   ];
   blockLevelElements.forEach(function(el){
-    markdownInlineRenderer[el] = returnText
+    markdownInlineRenderer[el] = returnText;
   });
 }());
 
@@ -33,10 +34,10 @@ module.exports = function(app, host, port, sessionSecret){
   markdown.register(nunjucksEnv, marked);
   nunjucksEnv.addFilter('render', function(content){
     return nunjucksEnv.renderString(content, this.ctx);
-  })
+  });
   nunjucksEnv.addFilter('inlineMarkdown', function(content){
     return marked(content, {renderer: markdownInlineRenderer}).replace(/^<p>(.*)<\/p>\n*$/, "$1");
-  })
+  });
   // Load our Yaml files and make the resulting
   // data available whenever we render a template.
   var data = loadData();
@@ -89,7 +90,7 @@ module.exports = function(app, host, port, sessionSecret){
       }else{
         res.render(template, context);
       }
-    }
+    };
   }
 
   function getConversationContext(conversationSlug) {
@@ -100,7 +101,7 @@ module.exports = function(app, host, port, sessionSecret){
     return {
       conversationSlug: conversationSlug,
       conversation: conversation
-    }
+    };
   }
 
   function getConversationDetailController(template) {
@@ -111,7 +112,7 @@ module.exports = function(app, host, port, sessionSecret){
       } else {
         res.render(template,context);
       }
-    }
+    };
   }
 
 
@@ -127,4 +128,4 @@ module.exports = function(app, host, port, sessionSecret){
 
   // Get particular conversation
   app.get('/conversations/:conversationSlug', getConversationDetailController('conversation.html'));
-}
+};
