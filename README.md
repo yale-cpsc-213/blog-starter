@@ -1,6 +1,6 @@
-# CPSC113 Blog Starter
+# CPSC213 Blog Starter
 
-Teams in CPSC113 will turn in their weekly updates by keeping a blog. This is
+Teams in CPSC213 will turn in their weekly updates by keeping a blog. This is
 a starter blog for you. It accomplishes a few things:
 
 * All data is kept in flat files so you can keep them under version control

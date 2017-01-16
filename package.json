@@ -1,7 +1,7 @@
 {
-  "name": "cpsc113-node-blog",
+  "name": "cpsc213-node-blog",
   "version": "1.0.0",
-  "description": "Blog for CPSC113",
+  "description": "Blog for CPSC213",
   "main": "index.js",
   "scripts": {
     "start": "bower.json"

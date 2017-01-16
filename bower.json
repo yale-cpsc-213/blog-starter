@@ -1,6 +1,6 @@
 {
-  "name": "cpsc113-node-blog",
-  "description": "Blog for CPSC113",
+  "name": "cpsc213-node-blog",
+  "description": "Blog for CPSC213",
   "main": "index.js",
   "authors": [
     "Kyle L. Jensen <kljensen@gmail.com>"
