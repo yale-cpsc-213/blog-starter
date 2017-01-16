@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Blog for CPSC213",
   "main": "index.js",
+  "engines": {
+    "node": ">=4.5.0"
+  },
   "scripts": {
     "start": "bower.json"
   },
