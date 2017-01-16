@@ -11,7 +11,7 @@ app.use('/static', express.static(__dirname + '/static'));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 config(app, host, port, sessionSecret);
 
-var server = app.listen(port, function () {
+var server = app.listen(port, host, function () {
   console.log(
     'Example app listening at http://%s:%s',
     server.address().address,
