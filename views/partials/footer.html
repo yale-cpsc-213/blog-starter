@@ -1,3 +1,6 @@
+
+
+
 <footer>
   <div class="{% if fluid_layout %}container-fluid{% else %}container{% endif %}">
     <div class="row">
@@ -8,6 +11,12 @@
         </p>
 
         <ul class="team-app-details">
+          <li>
+            <a href="{{data.team.app.url}}">
+              <i class="fa fa-globe"></i>
+              {{data.team.app.url}}
+            </a>
+          </li>
           <li>
             <a href="{{data.team.app.repo}}">
               <i class="fa fa-github-alt"></i>
@@ -30,9 +39,16 @@
             {% for member in data.team.members %}
               <li>
                 {{member.first_name}} {{member.last_name}}
-                <a class="contact-member" href="mailto:{{member.email}}"><i class="fa fa-envelope-o"></i></a>
+                <a class="contact-member" href="http://directory.yale.edu/?queryType=term&pattern={{member.first_name}}%20{{member.last_name}}"><i class="fa fa-address-book-o"></i></a>
+                <a class="contact-member" href="mailto:{{member.email}}?subject=CPSC213"><i class="fa fa-envelope-o"></i></a>
               </li>
             {% endfor %}
+            <li>
+              Email team:
+              <a class="contact-member" href="mailto:{% for member in data.team.members %}{{member.email}}{% if not loop.last %},{% endif %}{% endfor %}?subject=CPSC213">
+                <i class="fa fa-envelope-o"></i>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
