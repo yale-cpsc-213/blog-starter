@@ -62,3 +62,12 @@ Go to the following link https://devcenter.heroku.com/articles/getting-started-w
 * Then create an app on Heroku: `heroku create`, and it'll generate a random name for your app for you unless you add params like `heroku create blah`, and it'll create blah.herokuapp.com for you.
 * Then deploy the code: `git push heroku master`
 * You can now access your site by opening the link (eg blah.herokuapp.com) in your browser or by typing `heroku open` on your command line.
+
+## A few notes
+
+* We could have made this a static blog generator; however, we would not then be able
+  to restrict login access via the Yale CAS system.
+* You should feel free to customize this blog. Indeed, we hope you do---I do not enjoy
+  looking at the same theme all the time.
+* Git branching is a great way to work in your updates during the week. You can easily
+  run a second instance of this blog that is the "in-development" branch or similar.
