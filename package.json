@@ -7,7 +7,7 @@
     "node": ">=4.5.0"
   },
   "scripts": {
-    "start": "bower.json"
+    "start": "nodemon -e 'js,html,yaml,css' index.js"
   },
   "author": "",
   "license": "Unlicense",
