@@ -7,7 +7,8 @@
     "node": ">=4.5.0"
   },
   "scripts": {
-    "start": "nodemon -e 'js,html,yaml,css' index.js"
+    "start": "nodemon -e 'js,html,yaml,css' index.js",
+    "postinstall": "bower install"
   },
   "author": "",
   "license": "Unlicense",
