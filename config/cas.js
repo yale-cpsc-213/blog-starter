@@ -1,3 +1,4 @@
+'use strict';
 var CASAuthentication = require('cas-authentication');
 
 // See https://github.com/kylepixel/cas-authentication
