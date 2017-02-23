@@ -21,12 +21,12 @@ function getDataPath(topLevel, filePath) {
 // Alters an object by populating the `paths` with `newData`.
 // E.g. populatePaths({}, ['foo', 'bar'], {'kyle': 'bad'}) will
 // populate the first argument with {'foo': {'bar': {'kyle': 'bad'}}}.
-function populatePaths(object, paths, newData){
+function populatePaths(object, paths, newData) {
   var current = object;
   for (var i = 0; i < paths.length; i++) {
     // Do not overwrite existing data
     if (!(paths[i] in current)) {
-      current[paths[i]] = (i === paths.length -1 )? newData : {};
+      current[paths[i]] = (i === paths.length - 1) ? newData : {};
     }
     current = current[paths[i]];
   }
