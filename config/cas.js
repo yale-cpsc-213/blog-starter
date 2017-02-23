@@ -1,6 +1,5 @@
 var CASAuthentication = require('cas-authentication');
 
-
 // See https://github.com/kylepixel/cas-authentication
 module.exports = function (host, port, casUrl) {
   var cas = new CASAuthentication({
@@ -11,7 +10,7 @@ module.exports = function (host, port, casUrl) {
 
   // Help make running on Heroku easier for students. Let's automatically
   // change the `service_url` on the first request.
-  const serviceURLchecked = false;
+  let serviceURLchecked = false;
   cas.checkServiceURL = (req, res, next) => {
     if (serviceURLchecked === false) {
       const protocol = req.secure ? 'https' : 'http'
