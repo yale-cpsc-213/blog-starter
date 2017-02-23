@@ -64,7 +64,10 @@ module.exports = function (app, host, port, sessionSecret) {
 
   // This route will de-authenticate the client with the Express server and then
   // redirect the client to the CAS logout page.
-  app.get( '/logout', auth.logout );
+  app.get('/logout', auth.logout);
+
+  // Small middleware that sets the CAS auth service_url on first request.
+  app.use(auth.checkServiceURL);
 
   // All other routes require CAS authorization
   app.use(auth.bounce);
