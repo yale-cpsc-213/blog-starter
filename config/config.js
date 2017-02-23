@@ -13,30 +13,34 @@ var loadData = require('./data.js');
 // inline markdown elements, not block elements.
 var markdownInlineRenderer = new marked.Renderer();
 (function () {
-  var returnText = function(text, level){return text;};
+  var returnText = function (text, level) {
+    return text;
+  };
   var blockLevelElements = [
     'code', 'blockquote', 'html', 'heading', 'hr', 'list', 'listitem',
     'paragraph', 'table', 'tablerow', 'tablecell'
   ];
-  blockLevelElements.forEach(function(el){
+  blockLevelElements.forEach(function (el) {
     markdownInlineRenderer[el] = returnText;
   });
 }());
 
 
-module.exports = function(app, host, port, sessionSecret){
+module.exports = function (app, host, port, sessionSecret) {
 
   var nunjucksEnv = nunjucks.configure('views', {
-      autoescape: true,
-      express: app,
-      watch: true
+    autoescape: true,
+    express: app,
+    watch: true
   });
   markdown.register(nunjucksEnv, marked);
-  nunjucksEnv.addFilter('render', function(content){
+  nunjucksEnv.addFilter('render', function (content) {
     return nunjucksEnv.renderString(content, this.ctx);
   });
-  nunjucksEnv.addFilter('inlineMarkdown', function(content){
-    return marked(content, {renderer: markdownInlineRenderer}).replace(/^<p>(.*)<\/p>\n*$/, "$1");
+  nunjucksEnv.addFilter('inlineMarkdown', function (content) {
+    return marked(content, {
+      renderer: markdownInlineRenderer
+    }).replace(/^<p>(.*)<\/p>\n*$/, "$1");
   });
   // Load our Yaml files and make the resulting
   // data available whenever we render a template.
@@ -49,11 +53,11 @@ module.exports = function(app, host, port, sessionSecret){
   // Set up an Express session, which is required for CASAuthentication.
   // 1 week duration, extended by a week each time they log in.
   var duration = 24 * 60 * 60 * 7 * 1000;
-  app.use( session({
-      cookieName: 'session',
-      secret: sessionSecret,
-      duration: duration,
-      activeDuration: duration
+  app.use(session({
+    cookieName: 'session',
+    secret: sessionSecret,
+    duration: duration,
+    activeDuration: duration
   }));
 
   var auth = cas(host, port);
@@ -70,7 +74,7 @@ module.exports = function(app, host, port, sessionSecret){
     res.render('index.html', {});
   });
 
-  function getUpdateContext(updateKey){
+  function getUpdateContext(updateKey) {
     var update = app.locals.data.updates[updateKey];
     if (!update) {
       return null;
@@ -82,12 +86,12 @@ module.exports = function(app, host, port, sessionSecret){
     };
   }
 
-  function getUpdateDetailController(template){
+  function getUpdateDetailController(template) {
     return function (req, res) {
       var context = getUpdateContext(req.params.updateKey);
-      if(!context){
+      if (!context) {
         res.status(404).end();
-      }else{
+      } else {
         res.render(template, context);
       }
     };
@@ -107,10 +111,10 @@ module.exports = function(app, host, port, sessionSecret){
   function getConversationDetailController(template) {
     return function (req, res) {
       var context = getConversationContext(req.params.conversationSlug);
-      if(!context){
+      if (!context) {
         res.status(404).end();
       } else {
-        res.render(template,context);
+        res.render(template, context);
       }
     };
   }
