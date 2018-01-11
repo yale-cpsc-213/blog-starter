@@ -21,11 +21,8 @@ recommend version v6.\*LTS. (Node v6.9.4LTS is the current version as of this
 commit.) Once you have node installed, cd into the `blog-starter` directory and
 install the node dependencies:
 ```
-yarn install
+npm install
 ```
-
-If you don't have Facebook's [yarn](https://yarnpkg.com) installed, you should
-follow the [directions on their website](https://yarnpkg.com/en/docs/install).
 
 Then, you can install the client-side dependencies with
 
