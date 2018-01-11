@@ -17,7 +17,7 @@ Then you should clone it to your development machine and get to work
 altering it for your team.
 
 To run the application, you'll need [Node](https://nodejs.org/en/) installed. We
-recommend version v6.\*LTS. (Node v6.9.4LTS is the current version as of this
+recommend version v8.\*LTS. (Node v8.9.4LTS is the current version as of this
 commit.) Once you have node installed, cd into the `blog-starter` directory and
 install the node dependencies:
 ```
